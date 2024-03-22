@@ -1,0 +1,99 @@
+main {
+  width: 100%;
+  height: calc(100svh - 5em);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  flex-direction: column;
+}
+
+.searchbar {
+  background-color: rgba(255, 255, 255, 0.305);
+  backdrop-filter: blur(10px);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.068);
+  border-radius: 15px;
+  padding: 0.5em 1em 0.5em 1em;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.8em;
+  gap: 0.5em;
+  height: 2em;
+  min-width: 75%;
+  max-width: 90vw;
+}
+
+.searchbar i {
+  color: var(--darkgrey);
+}
+
+.searchbar input {
+  font-size: 1em;
+  background: none;
+  border: none;
+  outline: none;
+  height: 100%;
+  color: var(--darkgrey);
+}
+
+.searchbar input::placeholder {
+  color: var(--lightgrey);
+}
+
+.table {
+  min-width: 75%;
+  max-width: 90vw;
+  height: calc(100% - 4em);
+  background-color: rgba(255, 255, 255, 0.305);
+  backdrop-filter: blur(10px);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.068);
+  border-radius: 15px;
+}
+
+.table .element{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    width: 100%;
+    padding: 1em 1.5em 1em 1.5em;
+    position: relative;
+}
+
+.element .element-wrapper{
+    flex: 1;
+    overflow-x: hidden;
+}
+
+.element i:first-child{
+    font-size: 2.5em;
+    color: var(--darkgrey);
+}
+
+.element i:last-child{
+    font-size: 1em;
+    color: var(--darkgrey);
+}
+
+.element h1, .element p{
+    margin: 0;
+}
+
+.element h1{
+    font-size: 1.3em;
+    color: var(--darkgrey);
+}
+
+.element p{
+    color: var(--lightgrey);
+    text-wrap: nowrap;
+}
+
+.element .separator{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    color: var(--darkgrey);
+    bottom: 0;
+    left: 0;
+}
