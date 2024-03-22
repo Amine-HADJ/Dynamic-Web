@@ -10,6 +10,7 @@
       */
     --darkgrey: rgb(75, 75, 75);
     --lightgrey: rgb(192, 192, 192);
+    --bg-color: #f3f3f3;
 }
 
 body {
@@ -17,10 +18,6 @@ body {
   height: 100svh;
   margin: 0;
   padding: 0;
-  background-image: url(../assets/bg.jpg);
-  background-position: cover;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 nav {
@@ -68,4 +65,52 @@ nav .title-wrapper h1 {
 
 nav .title-wrapper .accent {
   color: white;
+}
+
+.bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+.bg img{
+  position: absolute;
+  width: auto;
+  height: 120%;
+  top: -1.5em;
+  transform-origin: top left;
+}
+
+.bg img:first-child{
+  animation: 4.8s branch infinite ease-in-out;
+}
+
+.bg img:nth-child(2){
+  animation: 5.1s branch infinite ease-in-out;
+}
+
+.bg img:nth-child(3){
+  animation: 4.9s branch infinite ease-in-out;
+}
+
+.bg img:nth-child(4){
+  animation: 5.5s branch infinite ease-in-out;
+}
+
+.bg img:last-child{
+  animation: 5.3s branch infinite ease-in-out;
+}
+
+@keyframes branch {
+  0%,100% {
+    transform: translateY(10px) rotate(3deg);
+  }
+  50%{
+    transform: translateY(0px) rotate(1deg);
+  }
 }
