@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenMasters</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="icon" type="image/x-icon" href="./public/assets/icon.ico"/>
+    <link rel="stylesheet" type="text/css" href="./public/css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Signika+Negative"
+    />
+    <script src="./public/js/index.js" defer></script>
+</head>
+<body>
+    <nav>
+        <img src="./public/assets/icon.png" alt="">
+        <div class="title-wrapper">
+            <h1 class="accent">zen</h1>
+            <h1>masters</h1>
+        </div>
+        <div class="nav-bg"></div>
+    </nav>
+
+    <main>
+
+        <div class="login">
+            <h1>Identification</h1>
+            <form action="/login" method="post">
+                <div class="textbox">
+                    <i id="close" class="fa-solid fa-user"></i>
+                    <input type="text" id="username" name="username" placeholder="nom utilisateur"><br>
+                </div>
+    
+                <div class="textbox">
+                    <i id="close" class="fa-solid fa-key"></i>
+                    <input type="password" id="password" name="password" placeholder="mot de passe"><br>
+                </div>
+    
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="remember" id="remember">
+                    <label for="remember">Se souvenir de moi</label>
+                </div>
+
+                <input type="submit" value="Se connecter">
+            </form>
+        </div>
+
+
+    </main>
+</body>
+</html>

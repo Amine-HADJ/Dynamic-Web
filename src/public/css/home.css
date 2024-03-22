@@ -1,0 +1,72 @@
+.login {
+  background-color: rgba(255, 255, 255, 0.305);
+  backdrop-filter: blur(10px);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.068);
+  border-radius: 15px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  justify-content: center;
+}
+
+.login h1 {
+  width: min-content;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin: 0;
+}
+
+.textbox {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: center;
+  background-color: rgba(157, 157, 157, 0.322);
+  border: 1px solid rgba(255, 255, 255, 0.543);
+  color: rgb(255, 255, 255);
+  border-radius: 15px;
+  height: 2.5em;
+  padding: 0em 0em 0em 0.8em;
+}
+
+.textbox input[type="text"],
+.textbox input[type="password"] {
+  background: none;
+  border: none;
+  color: white;
+  outline: none;
+  height: 100%;
+  flex: 1;
+}
+
+.textbox input::placeholder {
+  color: rgba(255, 255, 255, 0.514);
+}
+
+form input[type="submit"] {
+  border: none;
+  background: white;
+  padding: 0.8em 1em 0.8em 1em;
+  border-radius: 15px;
+  font-family: "Signika Negative";
+}
+
+.checkbox-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: center;
+}
+
+form label {
+  font-size: 0.8em;
+}

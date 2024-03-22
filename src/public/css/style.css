@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  font-family: "Signika Negative";
+  /* Exemple definition de couleur globale
+      --gold: #ffd401;
+      */
+}
+
+body {
+  width: 100vw;
+  height: 100svh;
+  margin: 0;
+  padding: 0;
+  background-image: url(../assets/bg.jpg);
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+  }
+  
+  nav .nav-bg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.657),
+      rgba(255, 255, 255, 0) 100%
+    );
+    backdrop-filter: blur(10px);
+    mask-image: linear-gradient(black, transparent);
+  }
+
+  nav img {
+    height: 60%;
+    z-index: 3;
+    transform: rotate(180deg);
+  }
+  
+  nav .title-wrapper {
+    display: flex;
+    flex-direction: row;
+    filter: invert();
+    z-index: 3;
+  }
+  
+  nav .title-wrapper h1 {
+    font-size: 2em;
+    margin: 0;
+  }
+  
+  nav .title-wrapper .accent {
+    color: white;
+  }
+  
+  main {
+    width: 100%;
+    height: calc(100svh - 5em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
