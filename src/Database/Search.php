@@ -28,15 +28,15 @@
                 keywords a
                 INNER JOIN keySympt b
                     ON a.idK = b.idK
-                INNER JOIN symptome c
-                    ON b.idS = c.idS
-                INNER JOIN symptPatho d
-                    ON c.idS = d.idS
-                INNER JOIN patho e
-                    ON d.idP = e.idP
-                INNER JOIN meridien f
-                    ON e.mer = f.code
-            WHERE f.nom LIKE '%$query%'
+                    INNER JOIN symptome c
+                        ON b.idS = c.idS
+                        INNER JOIN symptPatho d
+                            ON c.idS = d.idS
+                            INNER JOIN patho e
+                                ON d.idP = e.idP
+                                INNER JOIN meridien f
+                                    ON e.mer = f.code
+            WHERE a.name LIKE '%$query%'
         "; 
     $sth = $conn->prepare( $sql ); 
     $sth->execute();

@@ -5,7 +5,7 @@
     <title>Search | ZenMasters</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="icon" type="image/x-icon" href="../public/assets/icon.ico"/>
-    <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../public/css/search.css" />
     <link
       rel="stylesheet"
@@ -18,14 +18,7 @@
     <script src="../public/js/search.js" defer></script>
 </head>
 <body>
-    <nav>
-      <img src="../public/assets/icon.png" alt="">
-      <div class="title-wrapper">
-          <h1 class="accent">zen</h1>
-          <h1>masters</h1>
-      </div>
-      <div class="nav-bg"></div>
-    </nav>
+    {% include 'navbar.html.twig' %}
 
     <main>
 
@@ -36,7 +29,7 @@
 
       <div class="table">
         {% for element in elements %}
-          {% include 'element.html.twig' with {'title': element.meridian_name, 'description': element.meridian_description, 'onclick': 'fetchPatho('event, "{{ element.meridian_name }}"')'} %}
+          {% include 'element.html.twig' with {'title': element.meridian_name, 'description': element.meridian_description} %}
         {% endfor %}
       </div>
 
