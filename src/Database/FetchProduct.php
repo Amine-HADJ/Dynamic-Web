@@ -5,7 +5,9 @@
     $user = $_ENV['DB_USER'];
     $password = $_ENV['DB_PASSWORD'];
 
-    $sql = 'SELECT * FROM products'; 
+    $query = $_GET['query'];
+
+    $sql = "SELECT * FROM products WHERE id = $query"; 
 
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
@@ -13,9 +15,9 @@
         echo $e->getCode() . ' ' . $e->getMessage();
     }
 
-    $sth = $this->conn->prepare( $sql ); 
+    $sth = $conn->prepare( $sql ); 
     $sth->execute();
-    $elements = $sth->fetchAll();
+    $element = $sth->fetchAll();
     $conn = null;
-    echo json_encode($elements);
+    echo json_encode($element);
 ?>

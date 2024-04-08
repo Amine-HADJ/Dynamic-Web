@@ -7,6 +7,6 @@
     $twig = new \Twig\Environment($loader);
 
     $db = new Database();
-    $data = $db->getData();
+    $data = $db->getProducts();
 
-    echo $twig->render("shop.html.twig");
+    echo $twig->render("shop.html.twig", ['elements' => $data]);

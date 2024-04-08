@@ -26,4 +26,11 @@ class Database {
         $sth->execute();
         return $sth->fetchAll();
     }
+
+    public function getProducts() {
+        $sql = 'SELECT * FROM products;'; 
+        $sth = $this->conn->prepare( $sql ); 
+        $sth->execute();
+        return $sth->fetchAll();
+    }
 }
