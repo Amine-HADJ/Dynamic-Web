@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,39 +7,77 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="icon" type="image/x-icon" href="../public/assets/icon.ico"/>
     <link rel="stylesheet" type="text/css" href="../public/css/styles.css" />
-    <link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/home5.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika+Negative" />
     <script src="../public/js/index.js" defer></script>
+    <style>
+        .textbox input[type="email"] {
+            background: none;
+            border: none;
+            color: white;
+            outline: none;
+            height: 100%;
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
     {% include 'navbar.html.twig' %}
     
     <main>
+        <div class="container">
+            <div class="login">
+                <h1>Connexion</h1>
+                <form action="/login" method="post">
+                    <div class="textbox">
+                        <i id="close" class="fa-solid fa-user"></i>
+                        <input type="text" id="username" name="username" placeholder="Nom d'utilisateur"><br>
+                    </div>
+        
+                    <div class="textbox">
+                        <i id="close" class="fa-solid fa-key"></i>
+                        <input type="password" id="password" name="password" placeholder="Mot de passe"><br>
+                    </div>
+        
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember">Se souvenir de moi</label>
+                    </div>
+        
+                    <input type="submit" value="Se connecter">
+                </form>
+            </div>
 
-        <div class="login">
-            <h1>Identification</h1>
-            <form action="/login" method="post">
-                <div class="textbox">
-                    <i id="close" class="fa-solid fa-user"></i>
-                    <input type="text" id="username" name="username" placeholder="nom utilisateur"><br>
-                </div>
-    
-                <div class="textbox">
-                    <i id="close" class="fa-solid fa-key"></i>
-                    <input type="password" id="password" name="password" placeholder="mot de passe"><br>
-                </div>
-    
-                <div class="checkbox-wrapper">
-                    <input type="checkbox" name="remember" id="remember">
-                    <label for="remember">Se souvenir de moi</label>
-                </div>
+            <div class="container">
+                <div class="register">
+                    <h1>Inscription</h1>
+                    <form action="/register" method="post">
+                        <div class="textbox">
+                            <i id="close" class="fa-solid fa-user"></i>
+                            <input type="text" id="new_username" name="new_username" placeholder="Nouveau nom d'utilisateur"><br>
+                        </div>
+            
+                        <div class="textbox">
+                            <i id="close" class="fa-solid fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Adresse email">
+                        </div>
+            
+                        <div class="textbox">
+                            <i id="close" class="fa-solid fa-key"></i>
+                            <input type="password" id="new_password" name="new_password" placeholder="Nouveau mot de passe"><br>
+                        </div>
 
-                <input type="submit" value="Se connecter">
-            </form>
+                        <div class="textbox">
+                            <i id="close" class="fa-solid fa-key"></i>
+                            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmer le mot de passe"><br>
+                        </div>
+            
+                        <input type="submit" value="S'inscrire">
+                    </form>
+                </div>
+            </div>
         </div>
-
-
     </main>
 
     <div class="bg">
