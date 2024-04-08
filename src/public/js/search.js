@@ -1,3 +1,5 @@
+const searchBar = document.querySelector("#searchbar");
+
 function getRandomElements(arr, n) {
     const copyArr = arr.slice();
     const result = [];
@@ -40,76 +42,11 @@ async function fetchPatho(event, name){
     element.classList.add("element-toggled");
 }
 
-async function search(query){
-    const result = await fetch(`../../Database/Search.php?query=${query}`);
+async function search(){
+  const query = searchBar.value;
+  const result = await fetch(`../../Database/Search.php?query=${query}`);
 
-    console.log(result);
+  console.log(result);
 }
 
-
-/*
-window.addEventListener("load", async () => {
-    let data_products = [];
-    for (let index = 1; index < 6; index++) {
-
-        const result = await fetch(`https://corsproxy.io/?https://taostar.com/shop-all/?Screen=SFNT&Store_Code=acom&page=${index}`, {
-            headers: {
-                "cors": "nocors",
-            }
-        }).then((data_shop) => {
-            return data_shop.text();
-        })
-        const doc = new DOMParser().parseFromString(result, 'text/html');
-        const products = doc.querySelectorAll(".product");
-        products.forEach(async product => {
-            const image = product.querySelector(".card-image").src; 
-            const title = product.querySelector(".card-title a").innerHTML.replace();
-            const price = product.querySelector(".price--withoutTax").innerHTML;
-            const link = product.querySelector(".card-title a ").href;
-
-            await fetch(`https://corsproxy.io/?${link}`)
-                .then(async (data_shop) => {
-                    const result_item = await data_shop.text();
-                    const doc_item = new DOMParser().parseFromString(result_item, 'text/html');
-                    const all_span = doc_item.querySelectorAll("span");
-                    let description = [];
-                    let flag_useless_data = 0;
-                    all_span.forEach(span => {
-                        if (!span.children.length && !span.innerHTML.includes("\n") ) {
-                            if (span.innerHTML == "Pinterest") {
-                                flag_useless_data = 1;
-                            }else if (span.innerHTML == "Close"){
-                                flag_useless_data = 0;
-                            }
-                            else if (flag_useless_data == 1) {
-                                txt = span.innerHTML;
-                                all_txt.push(txt);
-                            }                                
-                        }
-
-                    })
-                    data_products.push({
-                        image,
-                        title,
-                        price,
-                        description,
-                        link
-                    })
-                })
-                .catch(e => {const a = e});
-            
-        }) 
-    }
-
-    const response = await fetch('../../Database/MinedData.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data_products)
-    });
-
-    const data = response.text();
-    console.log(data);
-})
-*/
+searchBar.addEventListener("change", search(query))
