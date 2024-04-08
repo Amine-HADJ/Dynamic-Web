@@ -22,6 +22,26 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL,
+  `image` VARCHAR(255) NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
+  `price` VARCHAR(255) NOT NULL,
+  `description` TEXT NOT NULL,
+  `link` VARCHAR(255) NOT NULL,
+  PRIMARY KEY `id`,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  PRIMARY KEY `id` ,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `users` (`username`, `email`, `password`) VALUES ('test', 'test@test.com', 'test');
+
 --
 -- Structure de la table `keySympt`
 --

@@ -1,4 +1,87 @@
-﻿DROP TABLE IF EXISTS public.keySympt;
+﻿DROP TABLE IF EXISTS public.products;
+CREATE TABLE public.products (
+  id INTEGER NOT NULL,
+  image text
+	        DEFAULT NULL,
+  title text
+	        DEFAULT NULL,
+  price character varying(255) 
+	        DEFAULT NULL,
+  link text
+	        DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO public.products (id, image, title, price, link) VALUES
+  (1, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/223/1511/immunity22__48009.1658952216.jpg?c=2', 'Immunity', '$36.00', 'https://taostar.com/immunity/'),
+  (2, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/410/1044/detox_bath__54159.1579807882.jpg?c=2', 'Detox Bath', '$48.00', 'https://taostar.com/detox-bath/'),
+  (3, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/383/1001/pain_patches__72416.1584488118.jpg?c=2', 'Pain Free Patches', '$42.00', 'https://taostar.com/pain-free-patches/'),
+  (4, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/382/1000/pain__06555.1584488097.jpg?c=2', 'Pain', '$34.00', 'https://taostar.com/pain/'),
+  (5, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/217/1622/Ancient_Treasures_24_2__24936.1707342961.jpg?c=2', 'Ancient Treasures Tea - 20 Tea Bags', '$15.00', 'https://taostar.com/ancient-treasures-tea-20-tea-bags/'),
+  (6, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/381/1172/Back_to_Pain_free_DL__99837.1585093978.jpg?c=2', 'BACK to Pain-Free Health eBook', '$9.95', 'https://taostar.com/back-to-pain-free-health-ebook/'),
+  (7, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/335/959/Gentle_path__48724.1579213312.jpg?c=2', 'The Gentle Path of Spiritual Progress', '$15.95', 'https://taostar.com/the-gentle-path-of-spiritual-progress/'),
+  (8, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/220/1348/night-cream-composed__30214.1599265093.png?c=2', 'Regenerating Night Cream', '$30.00', 'https://taostar.com/regenerating-night-cream/'),
+  (9, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/237/504/Tension_massageball__90496.1535648769.jpg?c=2', 'Tension RollerBall Set', '$29.00', 'https://taostar.com/tension-rollerball-set/'),
+  (10, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/113/983/QiGong_BackPain__26329.1579546421.jpg?c=2', 'Qi Gong for Back Pain DVD', '$24.95', 'https://taostar.com/qi-gong-for-back-pain-dvd/'),
+  (11, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/111/999/arthritis_joint__25235.1630542421.jpg?c=2', 'Arthritis/Joint', '$34.00', 'https://taostar.com/arthritis-joint-formula/'),
+  (12, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/228/997/sleep__84506.1605041727.jpg?c=2', 'Sanctuary - SLEEP Capsules', '$34.00', 'https://taostar.com/sanctuary-sleep-capsules/'),
+  (13, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/86/1002/bslim__63801.1655929200.jpg?c=2', 'B-Slim', '$44.00', 'https://taostar.com/b-slim/'),
+  (14, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/150/962/Secrets-of-Longevity__87634.1579213778.jpg?c=2', 'Secrets of Longevity - Hundreds of Ways to Live to be 100', '$16.95', 'https://taostar.com/secrets-of-longevity-hundreds-of-ways-to-live-to-be-100/'),
+  (15, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/236/503/tension_roller__35547.1535648388.jpg?c=2', 'Tension RollerBall Oil', '$25.00', 'https://taostar.com/tension-rollerball-oil/'),
+  (16, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/614/1616/GuSha_chrome__05400.1700683260.jpg?c=2', 'Gua Sha - Stainless Steel', '$10.00', 'https://taostar.com/gua-sha-stainless-steel/'),
+  (17, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/224/491/calm_roller__29622.1535569951.jpg?c=2', 'Sanctuary - CALM RollerBall', '$25.00', 'https://taostar.com/sanctuary-calm-rollerball/'),
+  (18, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/144/964/Web_Pic_-_Back-to-Pain-Free__62115.1568089308.1280.1280__61405.1579213979.jpg?c=2', 'BACK to Pain-Free Health Book', '$19.95', 'https://taostar.com/back-to-pain-free-health-book/'),
+  (19, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/238/961/Live_Your_Ultimate_life-cover__62429.1579213614.jpg?c=2', 'Live Your Ultimate Life', '$16.95', 'https://taostar.com/live-your-ultimate-life/'),
+  (20, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/229/496/sleep2__53464.1535573265.jpg?c=2', 'Sanctuary - SLEEP RollerBall', '$25.00', 'https://taostar.com/sanctuary-sleep-rollerball/'),
+  (21, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/613/1614/Bone-Health__39657.1699380589.jpg?c=2', 'Bone Healh', '$50.50', 'https://taostar.com/bone-healh/'),
+  (22, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/612/1612/elixir_tonic__22003.1698706830.jpg?c=2', 'Elixir Tonic', '$45.00', 'https://taostar.com/elixir-tonic/'),
+  (23, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/611/1589/royal_jelly__14844.1695429150.jpg?c=2', 'Royal Jelly', '$45.00', 'https://taostar.com/royal-jelly/'),
+  (24, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/605/1567/yeast_control__48809.1679709414.jpg?c=2', 'Yeast Control', '$39.00', 'https://taostar.com/yeast-control/'),
+  (25, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/592/1516/PreBiotic_Fiber_Plus__66888.1658959840.jpg?c=2', 'PreBiotic Fiber PLUS', '$39.00', 'https://taostar.com/prebiotic-fiber-plus/'),
+  (26, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/590/1533/UT_Support__12635.1659071463.jpg?c=2', 'U.T. Support', '$45.00', 'https://taostar.com/u-t-support/'),
+  (27, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/595/1523/Vitamin-C-Skin-Elixir-drops__17660.1658971371.jpg?c=2', 'Vitamin C Skin Elixir', '$31.50', 'https://taostar.com/vitamin-c-skin-elixir/'),
+  (28, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/598/1554/8_week_DL2__28531.1672424176.jpg?c=2', 'Secrets of Longevity: 8-Week Program eBook', '$9.95', 'https://taostar.com/secrets-of-longevity-8-week-program-ebook/'),
+  (29, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/604/1571/magnesium_calm__60050.1686275035.jpg?c=2', 'Magnesium Calm', '$45.00', 'https://taostar.com/magnesium-calm/'),
+  (30, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/586/1521/Super_Resveratrol_green__63944.1658964477.jpg?c=2', 'Super Resveratrol', '$39.00', 'https://taostar.com/super-resveratrol/'),
+  (31, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/585/1537/Prostate_Support_PLUS2__76102.1659074280.jpg?c=2', 'Prostate Support PLUS', '$48.00', 'https://taostar.com/prostate-support/'),
+  (32, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/577/1446/Cosmic_BaGua1__03048.1650660116.jpg?c=2', 'Ba Gua Cosmic Tour Level 1: Merry Go Round DVD', '$29.95', 'https://taostar.com/ba-gua-cosmic-tour-level-1-merry-go-round-dvd/'),
+  (33, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/574/1486/Allergy_Dairy_Drops__55217.1657146362.jpg?c=2', 'Allergy - Dairy Drops', '$31.25', 'https://taostar.com/allergy-dairy-drops/'),
+  (34, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/566/1530/collagen_Boost_Max_Green__02661.1659069530.jpg?c=2', 'Collagen Boost Max', '$45.00', 'https://taostar.com/collagen-boost/'),
+  (35, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/567/1519/Cell_Protect_Max2__97958.1658962439.jpg?c=2', 'Cell Protect Max', '$58.50', 'https://taostar.com/cell-protection/'),
+  (36, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/568/1403/Super_Vitamin_A_Drops__59499.1632785541.jpg?c=2', 'Super Vitamin A Spray', '$35.00', 'https://taostar.com/super-vitamin-a-drops/'),
+  (37, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/569/1531/Brain-Boost-Neuro-PLUS__80949.1659069792.jpg?c=2', 'Brain Boost Neuro PLUS', '$61.00', 'https://taostar.com/brain-boost/'),
+  (38, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/565/1420/Natural_Carnitine__23125.1632793646.jpg?c=2', 'Natural Carnitine', '$58.00', 'https://taostar.com/natural-carnitine/'),
+  (39, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/564/1573/DHEA_23_label__07040.1690245464.jpg?c=2', 'Natural DHEA', '$50.50', 'https://taostar.com/natural-dhea/'),
+  (40, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/563/1428/ProArginine_90__30721.1633586412.jpg?c=2', 'ProArginine', '$46.50', 'https://taostar.com/proarginine/'),
+  (41, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/561/1397/Allergy_Nightshade_Drops__40944.1632442459.jpg?c=2', 'Allergy - Nightshade Drops', '$31.25', 'https://taostar.com/allergy-nightshade-drops/'),
+  (42, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/534/1507/vena-lax2__63625.1658882725.jpg?c=2', 'Vena-Lax', '$36.50', 'https://taostar.com/blood-pressure/'),
+  (43, 'https://cdn11.bigcommerce.com/s-gwsluaae13/images/stencil/500x659/products/553/1520/Super_B_Green__90957.1658964144.jpg?c=2', 'Super B', '$49.00', 'https://taostar.com/super-vitamin-b/');
+
+DROP TABLE IF EXISTS public.pathoproduct;
+CREATE TABLE public.symptproduct (
+  id_prod INTEGER NOT NULL,
+  id_sympt INTEGER NOT NULL,
+  similarities INTEGER NOT NULL
+);
+
+INSERT INTO public.symptproduct (id_prod, id_sympt, similarities) VALUES
+  (9, 7, 1),(1, 14, 1),(9, 16, 1),(2, 16, 1),(4, 16, 1),(7, 16, 1),(6, 16, 1),(9, 23, 3),(2, 23, 3),(1, 25, 1),(7, 25, 1),(6, 25, 1),(9, 35, 1),(0, 37, 1),(3, 37, 1),(11, 37, 1),(9, 60, 1),(2, 60, 1),(4, 60, 1),(7, 60, 1),(6, 60, 1),(7, 88, 1),(10, 88, 1),(9, 96, 1),(9, 98, 3),(2, 98, 3),(9, 99, 4),(2, 99, 4),(4, 99, 1),(7, 99, 1),(6, 99, 1),(9, 100, 3),(2, 100, 3),(0, 105, 2),(1, 105, 1),(3, 105, 1),(7, 105, 1),(10, 105, 1),(4, 105, 1),(7, 105, 1),(2, 105, 1),(10, 105, 1),(0, 108, 2),(1, 108, 1),(3, 108, 1),(7, 108, 1),(10, 108, 1),(4, 108, 1),(7, 108, 1),(2, 108, 1),(10, 108, 1),(9, 109, 3),(2, 109, 3),(9, 110, 1),(2, 110, 1),(4, 110, 1),(7, 110, 1),(6, 110, 1),(9, 115, 1),(2, 115, 1),(4, 115, 1),(7, 115, 1),(6, 115, 1),(9, 116, 4),(2, 116, 4),(4, 116, 1),(7, 116, 1),(6, 116, 1),(9, 119, 1),(2, 119, 1),(4, 119, 1),(7, 119, 1),(6, 119, 1),(9, 120, 1),(2, 120, 1),(4, 120, 1),(7, 120, 1),(6, 120, 1),(3, 122, 1),(7, 122, 1),(8, 122, 1),(9, 122, 1),(1, 122, 1),(3, 123, 1),(7, 123, 1),(8, 123, 1),(9, 123, 1),(1, 123, 1),(3, 124, 1),(7, 124, 1),(8, 124, 1),(9, 124, 1),(1, 124, 1),(9, 126, 3),(2, 126, 3),(3, 135, 1),(7, 135, 1),(8, 135, 1),(9, 135, 1),(1, 135, 1),(0, 138, 4),(1, 138, 2),(2, 138, 1),(3, 138, 2),(5, 138, 1),(4, 138, 2),(6, 138, 1),(7, 138, 2),(11, 138, 2),(10, 138, 1),(9, 138, 3),(1, 138, 2),(2, 138, 3),(3, 138, 1),(4, 138, 1),(6, 138, 1),(7, 138, 2),(10, 138, 2),(9, 138, 2),(2, 138, 1),(3, 138, 2),(6, 138, 2),(9, 138, 2),(10, 138, 1),(2, 138, 4),(7, 138, 4),(6, 138, 1),(10, 138, 4),(11, 138, 3),(0, 142, 1),(7, 142, 1),(9, 142, 1),(0, 148, 2),(1, 148, 1),(3, 148, 1),(7, 148, 1),(10, 148, 1),(4, 148, 1),(7, 148, 1),(2, 148, 1),(10, 148, 1),(0, 151, 2),(1, 151, 2),(3, 151, 1),(7, 151, 2),(10, 151, 1),(4, 151, 1),(7, 151, 1),(2, 151, 1),(6, 151, 1),(10, 151, 1),(7, 152, 1),(10, 152, 1),(7, 213, 1),(10, 213, 1),(9, 222, 1),(0, 225, 2),(1, 225, 1),(3, 225, 1),(7, 225, 1),(10, 225, 1),(4, 225, 1),(7, 225, 1),(2, 225, 1),(6, 225, 1),(10, 225, 1),(11, 225, 1),(9, 250, 1),(2, 250, 1),(4, 250, 1),(7, 250, 1),(6, 250, 1),(6, 261, 1),(10, 261, 1),(1, 264, 1),(7, 264, 1),(6, 264, 1),(1, 265, 1),(7, 265, 1),(6, 265, 1),(1, 266, 1),(7, 266, 1),(6, 266, 1),(1, 267, 1),(7, 267, 1),(6, 267, 1),(1, 268, 1),(7, 268, 1),(6, 268, 1),(1, 269, 1),(7, 269, 1),(6, 269, 1),(1, 270, 1),(7, 270, 1),(6, 270, 1),(1, 271, 1),(7, 271, 1),(6, 271, 1),(1, 272, 1),(7, 272, 1),(6, 272, 1),(2, 285, 1),(3, 285, 1),(5, 285, 1),(10, 285, 1),(1, 285, 1),(6, 285, 1),(7, 285, 1),(7, 291, 1),(10, 291, 1),(9, 308, 1),(2, 308, 1),(4, 308, 1),(7, 308, 1),(6, 308, 1),(0, 314, 1),(1, 314, 1),(2, 314, 1),(3, 314, 2),(4, 314, 1),(7, 314, 1),(11, 314, 1),(9, 314, 1),(1, 314, 1),(2, 314, 1),(3, 314, 1),(4, 314, 1),(7, 314, 1),(9, 314, 1),(2, 314, 2),(3, 314, 1),(6, 314, 2),(9, 314, 2),(2, 314, 2),(7, 314, 1),(6, 314, 1),(11, 314, 2),(9, 315, 1),(2, 315, 1),(4, 315, 1),(7, 315, 1),(6, 315, 1),(9, 322, 1),(10, 322, 1),(11, 322, 1),(1, 389, 1),(11, 389, 1),(1, 398, 1),(7, 398, 1),(6, 398, 1),(1, 405, 1),(4, 405, 1),(11, 405, 1),(9, 405, 1),(1, 405, 1),(2, 405, 1),(10, 405, 1),(11, 405, 1),(9, 415, 1),(2, 415, 1),(4, 415, 1),(7, 415, 1),(6, 415, 1),(1, 420, 1),(7, 420, 1),(9, 420, 1),(11, 420, 1),(9, 433, 1),(2, 433, 1),(4, 433, 1),(7, 433, 1),(6, 433, 1);
+
+DROP TABLE IF EXISTS public.users;
+CREATE TABLE public.users (
+  id INTEGER NOT NULL,
+  username character varying(40) 
+	        DEFAULT NULL,
+  email character varying(40) 
+	        DEFAULT NULL,
+  password character varying(40) 
+	        DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO users (id, username, email, password) VALUES (0, 'test', 'test@test.com', 'test');
+
+DROP TABLE IF EXISTS public.keySympt;
 CREATE TABLE public.keySympt (
   idK INTEGER NOT NULL,
   idS INTEGER NOT NULL,
