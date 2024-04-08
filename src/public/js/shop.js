@@ -1,10 +1,8 @@
 const productButtons = document.querySelectorAll('.cta-button');
-const modals = document.querySelectorAll('.modal');
 const modal = document.querySelector('#modal');
 
 productButtons.forEach((button) => {
   button.addEventListener('click', (event) => {
-    const modalTarget = button.dataset.modalTarget;
     const element = event.target.parentElement;
     const data = {
       link: element.querySelector('img').src, 
@@ -17,14 +15,12 @@ productButtons.forEach((button) => {
   });
 });
 
-
-  modal.querySelector('.close').addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-
-
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('modal')) {
     event.target.style.display = 'none';
   }
+});
+
+modal.querySelector('.close').addEventListener('click', () => {
+  modal.style.display = 'none';
 });
