@@ -33,4 +33,24 @@ class Database {
         $sth->execute();
         return $sth->fetchAll();
     }
+
+    public function getCart() {
+        $cart = $_COOKIE['cart'] ?? '[]';
+        $cart = json_decode($cart, true);
+    
+        $products = [];
+    
+        foreach ($cart as $id) {
+            $sql = 'SELECT * FROM products WHERE id = ?';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([$id]);
+            $product = $sth->fetch();
+            $products[] = $product;
+            
+        }
+        
+        return $products;
+    }
+    
+
 }

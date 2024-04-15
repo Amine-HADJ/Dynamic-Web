@@ -40,3 +40,35 @@ modal.querySelector('.close').addEventListener('click', () => {
     modal.style.display = 'none';
   }, 400);
 });
+
+
+// Ajout des produits dans le panier
+
+let cart = getCartFromCookie() || [];
+
+document.querySelectorAll('.add-to-cart-button').forEach(button => {
+    button.addEventListener('click', event => {
+        let productId = event.target.dataset.id;
+        cart.push(productId);
+        setCartCookie(cart);
+    });
+});
+
+function getCartFromCookie() {
+    let cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim().split('=');
+        if (cookie[0] === 'cart') {
+            return JSON.parse(cookie[1]);
+        }
+    }
+    return [];
+}
+
+function setCartCookie(cart) {
+    let cookieValue = JSON.stringify(cart);
+    let expires = new Date();
+    expires.setTime(expires.getTime() + (30 * 24 * 60 * 60 * 1000)); // expires in 30 days
+    document.cookie = 'cart=' + cookieValue + ';expires=' + expires.toUTCString() + ';path=/';
+}
+
