@@ -1,20 +1,11 @@
 <?php
+    session_start();
+
     $port = '5432';
     $host = $_ENV['DB_HOST'];
     $dbname = $_ENV['DB_DB'];
     $user = $_ENV['DB_USER'];
     $password = $_ENV['DB_PASSWORD'];
-
-    $json = file_get_contents('php://input');
-    $data_array = json_decode($json, true);
-
-    $query_user = $data_array['username'];
-    $query_pass = $data_array['password'];
-    $query_email = $data_array['email'];
-
-    $check_query = "SELECT count(1) > 0
-    FROM users
-    WHERE username = $query_user OR email = $query_email";
 
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
@@ -22,15 +13,30 @@
         echo $e->getCode() . ' ' . $e->getMessage();
     }
 
-    $sth = $conn->prepare( $check_query ); 
-    $sth->execute();
-    $result = $sth->fetchAll();
+    if(isset($_POST['username']) && isset() && isset($_POST['password'])) {
+        $query_user = $_POST['username'];
+        $query_pass = $_POST['password'];
+        $query_email = $_POST['email'];
 
-    $hashed_password = password_hash($query_pass, "");
-    $insert_query = "INSERT INTO users (username, email, password) VALUES ($query_user, $query_email, $hashed_password)";
-    $sth = $conn->prepare($insert_query);
-  
-    echo 'ok';
+        $check_query = "SELECT count(1) > 0
+        FROM users
+        WHERE username = $query_user OR email = $query_email";
 
-    $conn = null;
+        $sth = $conn->prepare( $check_query ); 
+        $sth->execute();
+        $result = $sth->fetchAll();
+
+        if($result[0]) {
+            echo "User already exists";
+            $conn = null;
+            exit();
+        }
+
+        $hashed_password = password_hash($query_pass, "");
+        $insert_query = "INSERT INTO users (username, email, password) VALUES ($query_user, $query_email, $hashed_password)";
+        $sth = $conn->prepare($insert_query);
+        $conn = null;
+        echo "ok";
+        exit();
+    }
 ?>

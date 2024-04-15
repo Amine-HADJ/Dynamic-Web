@@ -17,25 +17,30 @@
         $query_user = $_POST['username'];
         $query_pass = $_POST['password'];
 
-        $check_query = "SELECT username, password
+        $check_query = "SELECT *
         FROM users
-        WHERE username = $query_user OR email = $query_user";
-    
+        WHERE username = '$query_user' OR email = '$query_user'";
+
         $sth = $conn->prepare( $check_query ); 
         $sth->execute();
         $result = $sth->fetchAll();
-    
-        $conn->close();
-        if(password_verify($result['password'], $query_pass)) {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $query_user;
-            setcookie("user", $query_user, time() + (86400 * 30));
+        $conn = null;
 
-            echo 'ok';
+        if($result){
+            $result = $result[0];
+            if(password_verify($result['password'], $query_pass)) {
+                $_SESSION['loggedin'] = true;
+                $_SESSION['username'] = $query_user;
+                setcookie("user", $query_user, time() + (86400 * 30));
+    
+                echo 'ok';
+                exit();
+            }
+            echo 'pass error';
+            exit();
+        } else {
+            echo 'error';
             exit();
         }
-        echo 'error';
-        exit();
     }
-
 ?>
