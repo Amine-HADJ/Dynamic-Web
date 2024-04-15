@@ -28,7 +28,7 @@
 
         if($result){
             $result = $result[0];
-            if(password_verify($result['password'], $query_pass)) {
+            if(password_verify($query_pass, $result['password'])) {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $query_user;
                 setcookie("user", $query_user, time() + (86400 * 30));
@@ -36,7 +36,7 @@
                 echo 'ok';
                 exit();
             }
-            echo 'pass error';
+            echo "pass error";
             exit();
         } else {
             echo 'error';

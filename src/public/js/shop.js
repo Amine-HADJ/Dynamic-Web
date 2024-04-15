@@ -13,8 +13,6 @@ async function handleButton(event) {
       .then(data => data.json());
   result = result[0];
   
-  
-  
   modal.querySelector('#modal-image').src = result.image;
   modal.querySelector('#modal-title').innerHTML = result.title;
   modal.querySelector('#modal-price').innerHTML = result.price;

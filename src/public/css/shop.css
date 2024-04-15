@@ -202,7 +202,6 @@ main {
   max-height: 100%;
 }
 
-
 .add-to-cart-button {
   display: inline-block;
   background-color: #ffd900;
@@ -214,3 +213,7 @@ main {
   transition: background-color 0.3s ease;
 }
 
+.bg{
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+}

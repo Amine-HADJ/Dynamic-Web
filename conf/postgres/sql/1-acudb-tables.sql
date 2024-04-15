@@ -69,17 +69,17 @@ INSERT INTO public.symptproduct (id_prod, id_sympt, similarities) VALUES
 
 DROP TABLE IF EXISTS public.users;
 CREATE TABLE public.users (
-  id INTEGER NOT NULL,
-  username character varying(40) 
+  id SERIAL NOT NULL,
+  username character varying(255) 
 	        DEFAULT NULL,
-  email character varying(40) 
+  email character varying(255) 
 	        DEFAULT NULL,
-  password character varying(40) 
+  password character varying(512)
 	        DEFAULT NULL,
   PRIMARY KEY (id)
 );
 
-INSERT INTO users (id, username, email, password) VALUES (0, 'test', 'test@test.com', 'test');
+INSERT INTO users (id, username, email, password) VALUES (default, 'test', 'test@test.com', 'test');
 
 DROP TABLE IF EXISTS public.keySympt;
 CREATE TABLE public.keySympt (

@@ -5,7 +5,7 @@
     <title>Search | ZenMasters</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="icon" type="image/x-icon" href="../public/assets/icon.ico"/>
-    <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../public/css/search.css" />
     <link
       rel="stylesheet"
@@ -26,6 +26,35 @@
         <i id="close" class="fa-solid fa-search"></i>
         <input type="text" name="searchbar" id="searchbar" placeholder="Rechercher">
       </div>
+
+      <label for="display">Afficher par:</label>
+      <select name="display" id="display">
+        <option value="meridian">Méridien</option>
+        <option value="symptome">Symptome</option>
+      </select>
+
+      <label for="caracteristique">Caractéristique:</label>
+      <select name="caracteristique" id="caracteristique">
+        <option value="plein">Plein</option>
+        <option value="chaud">Chaud</option>
+        <option value="froid">Froid</option>
+        <option value="vide">Vide</option>
+        <option value="interne">Interne</option>
+        <option value="externe">Externe</option>
+        <option value="tout">Tout</option>
+      </select>
+
+      <label for="type">Type:</label>
+      <select name="type" id="type">
+        <option value="meridien">Méridien</option>
+        <option value="luo">Luo</option>
+        <option value="zang">Zang</option>
+        <option value="jing_jin">Jing Jin</option>
+        <option value="fu">Fu</option>
+        <option value="pathologie">Pathologie</option>
+        <option value="symptome">Symptome</option>
+        <option value="tout">Tout</option>
+      </select>
 
       <div class="table">
         {% for element in elements %}

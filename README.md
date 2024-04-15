@@ -1,5 +1,4 @@
 # TODO:
 - Accessibilité du code HTML (AAA)
-- CSS page login
-- Systeme de panier pour le shop (?)
+- Clean tout le code
 - Ajouter filtres page de recherche

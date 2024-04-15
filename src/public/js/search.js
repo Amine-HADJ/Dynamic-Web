@@ -1,4 +1,7 @@
 const searchBar = document.querySelector("#searchbar");
+const display_type = document.querySelector("#display");
+const caracteristique_filter = document.querySelector("#caracteristique");
+const type_filter = document.querySelector("#type");
 
 function getRandomElements(arr, n) {
     const copyArr = arr.slice();
@@ -49,4 +52,15 @@ async function search(){
   console.log(result);
 }
 
-searchBar.addEventListener("change", search(query))
+
+async function dp_data(){
+    console.log(display_type.value);
+    console.log(caracteristique_filter.value);
+    console.log(type_filter.value);
+    //let result = await fetch(`../../Database/Filter.php?caracteristique=${caracteristique_filter.value}&type=${type_filter.value}`);            
+}
+
+display_type.addEventListener("change", dp_data)
+caracteristique_filter.addEventListener("change", dp_data)
+type_filter.addEventListener("change", dp_data)
+searchBar.addEventListener("change", search)

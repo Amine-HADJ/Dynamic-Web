@@ -1,7 +1,7 @@
 <?php
     // index.php
     require_once './vendor/autoload.php';
-    require_once './Database/database.php';
+    require_once './Database/Database.php';
 
     $loader = new \Twig\Loader\FilesystemLoader('./templates');
     $twig = new \Twig\Environment($loader);
