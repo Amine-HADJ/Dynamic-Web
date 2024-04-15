@@ -6,13 +6,13 @@ class Database {
     private $dbname;
     private $user;
     private $password;
-    private $conn;
+    public $conn;
 
-    public function __construct() {
+    public function __construct($type = null) {
         $this->host = $_ENV['DB_HOST'];
         $this->dbname = $_ENV['DB_DB'];
-        $this->user = $_ENV['DB_USER'];
-        $this->password = $_ENV['DB_PASSWORD'];
+        $this->user = $type == "admin" ? $_ENV['DB_ADMIN_USER'] : $_ENV['DB_USER'];
+        $this->password = $type == "admin" ? $_ENV['DB_ADMIN_PASSWORD'] : $_ENV['DB_PASSWORD'];
       try {
           $this->conn = new PDO("pgsql:host=$this->host;port=$this->port;dbname=$this->dbname", $this->user, $this->password);
       } catch (PDOException $e) {

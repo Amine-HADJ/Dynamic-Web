@@ -1,19 +1,10 @@
 <?php
-    $port = '5432';
-    $host = $_ENV['DB_HOST'];
-    $dbname = $_ENV['DB_DB'];
-    $user = $_ENV['DB_USER'];
-    $password = $_ENV['DB_PASSWORD'];
+    require_once './Database.php';
 
+    $db = new Database();
+    
     header('Content-Type: application/json');
-
     $query = $_GET['query'];
-
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
-    } catch (PDOException $e) {
-        echo $e->getCode() . ' ' . $e->getMessage();
-    }
 
     $sql = "SELECT
                 a.name,
@@ -38,7 +29,7 @@
                     ON e.mer = f.code
             WHERE f.nom LIKE '%$query%'
         "; 
-    $sth = $conn->prepare( $sql ); 
+    $sth = $db->conn->prepare( $sql ); 
     $sth->execute();
     $elements = $sth->fetchAll();
 

@@ -1,16 +1,14 @@
 <?php
-    $port = '5432';
-    $host = $_ENV['DB_HOST'];
-    $dbname = $_ENV['DB_DB'];
-    $user = $_ENV['DB_USER'];
-    $password = $_ENV['DB_PASSWORD'];
+    require_once './Database.php';
+
+    $db = new Database();
 
     header('Content-Type: application/json');
 
     $caracteristique = $_GET['caracteristique'];
-    $caracteristique = $caracteristique=="tout" ? "" : $caracteristique;
+    $caracteristique = $caracteristique == "tout" ? "" : $caracteristique;
     $type = $_GET['type'];
-    $type = $type="tout" ? "" : $type;
+    $type = $type == "tout" ? "" : $type;
 
     $sql = "SELECT
                     a.name,
