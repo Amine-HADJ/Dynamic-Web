@@ -13,16 +13,16 @@ async function handleButton(event) {
       .then(data => data.json());
   result = result[0];
   
-  setTimeout(() => {
-    modal.style.display = 'flex';
-  }, 400); 
   
-  modal.style.opacity = 1;
+  
   modal.querySelector('#modal-image').src = result.image;
   modal.querySelector('#modal-title').innerHTML = result.title;
   modal.querySelector('#modal-price').innerHTML = result.price;
   modal.querySelector('.modal-button').href = result.link;
-  
+  modal.style.display = 'flex';
+  setTimeout(() => {
+    modal.style.opacity = 1;
+  }, 50); 
 };
 
 document.addEventListener('click', (event) => {

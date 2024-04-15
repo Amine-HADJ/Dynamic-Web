@@ -19,10 +19,10 @@
         <div class="container">
             <div class="login">
                 <h1>Connexion</h1>
-                <form action="/login" method="post">
+                <form action="../Database/LoginUser.php" method="post">
                     <div class="textbox">
                         <i id="close" class="fa-solid fa-user"></i>
-                        <input type="text" id="username" name="username" placeholder="Nom d'utilisateur"><br>
+                        <input type="text" id="username" name="username" placeholder="Nom d'utilisateur/email"><br>
                     </div>
         
                     <div class="textbox">
@@ -41,7 +41,7 @@
 
             <div class="register">
                 <h1>Inscription</h1>
-                <form action="/register" method="post">
+                <form action="../Database/RegisterUser.php" method="post">
                     <div class="textbox">
                         <i id="close" class="fa-solid fa-user"></i>
                         <input type="text" id="new_username" name="new_username" placeholder="Nouveau nom d'utilisateur"><br>

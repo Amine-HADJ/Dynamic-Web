@@ -1,20 +1,11 @@
 <?php
+    session_start();
+
     $port = '5432';
     $host = $_ENV['DB_HOST'];
     $dbname = $_ENV['DB_DB'];
     $user = $_ENV['DB_USER'];
     $password = $_ENV['DB_PASSWORD'];
-
-    $json = file_get_contents('php://input');
-    $data_array = json_decode($json, true);
-
-    $query_user = $data_array['username'];
-    $query_pass = $data_array['password'];
-    $query_email = $data_array['email'];
-
-    $check_query = "SELECT username, password
-    FROM users
-    WHERE username = $query_user OR email = $query_email";
 
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
@@ -22,16 +13,29 @@
         echo $e->getCode() . ' ' . $e->getMessage();
     }
 
-    $sth = $conn->prepare( $check_query ); 
-    $sth->execute();
-    $result = $sth->fetchAll();
+    if(isset($_POST['username']) && isset($_POST['password'])) {
+        $query_user = $_POST['username'];
+        $query_pass = $_POST['password'];
 
-    $conn = null;
-    if(password_verify($result['password'], $query_pass)) {
-        echo 'ok';
+        $check_query = "SELECT username, password
+        FROM users
+        WHERE username = $query_user OR email = $query_user";
+    
+        $sth = $conn->prepare( $check_query ); 
+        $sth->execute();
+        $result = $sth->fetchAll();
+    
+        $conn->close();
+        if(password_verify($result['password'], $query_pass)) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $query_user;
+            setcookie("user", $query_user, time() + (86400 * 30));
+
+            echo 'ok';
+            exit();
+        }
+        echo 'error';
         exit();
     }
-    echo 'error';
-    exit();
 
 ?>

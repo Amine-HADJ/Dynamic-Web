@@ -6,36 +6,36 @@
     <title>Boutique en ligne</title>
     <link rel="icon" type="image/x-icon" href="../public/assets/icon.ico"/>
     <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../public/css/shop.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/shop3.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika+Negative" />    
-    <script src="../public/js/shop1.js" defer></script>
+    <script src="../public/js/shop.js" defer></script>
 </head>
 
 <body>
     {% include 'navbar.html.twig' %}
  
     <main>
-        <div class="searchbar">
-            <i id="close" class="fa-solid fa-search"></i>
-            <input type="text" name="searchbar" id="searchbar" placeholder="Rechercher">
+        <div class = "searchbar">
+            <i id = "close" class="fa-solid fa-search"></i>
+            <input type = "text" name = "searchbar" id = "searchbar" placeholder = "Rechercher">
         </div>
 
-        <div class="modal" id="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div class="modal-left">
-                    <img src="" alt="" id="modal-image">
+        <div class = "modal" id = "modal">
+            <div class = "modal-content">
+                <span class = "close">&times;</span>
+                <div class = "modal-left">
+                    <img src = "" alt = "" id = "modal-image">
                 </div>
-                <div class="modal-right">
-                    <h2 id="modal-title"></h2>
-                    <p class="price" id="modal-price"></p>
-                    <a target='blank' href="#" class="modal-button">Acheter maintenant</a>
+                <div class = "modal-right">
+                    <h2 id = "modal-title"></h2>
+                    <p class = "price" id = "modal-price"></p>
+                    <a target = 'blank' href = "#" class = "modal-button">Acheter maintenant</a>
                 </div>
             </div>
         </div>
 
-        <div class="product-grid">
+        <div class = "product-grid">
             {% for element in elements %}
                 {% include 'product.html.twig' with { 'title': element.title, 'image': element.image, 'id': element.id } %}
             {% endfor %}
