@@ -1,7 +1,7 @@
 <?php
     // index.php
     require_once './vendor/autoload.php';
-    require_once './php/database.php';
+    require_once './php/Database.php';
     require "./php/CheckLogin.php";
 
     $loader = new \Twig\Loader\FilesystemLoader('./templates');
