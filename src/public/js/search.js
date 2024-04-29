@@ -76,6 +76,8 @@ async function dp_data() {
 
   result.forEach(async (item) => {
     const item_template = template.content.cloneNode(true);
+    const element = clone.firstElementChild;
+    element.innerHTML.replace(/template_title/g, item.nom_mer);
     if (display_type.value == "meridian") {
       let title = item_template.querySelector("h1");
       title.innerHTML = item.nom_mer;
