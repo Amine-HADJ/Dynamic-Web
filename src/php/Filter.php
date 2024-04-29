@@ -34,4 +34,9 @@
                 WHERE 
                     e.desc LIKE '%$type%$caracteristique%',
             "; 
+    $sth = $db->conn->prepare( $sql ); 
+    $sth->execute();
+    $elements = $sth->fetchAll();
+
+    echo json_encode($elements);
 ?>

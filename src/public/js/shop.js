@@ -2,6 +2,8 @@ const productButtons = document.querySelectorAll('.cta-button');
 const modal = document.querySelector('#modal');
 const transi = document.querySelector('.fade-in');
 
+const searchBar = document.querySelector('#searchbar');
+
 productButtons.forEach((button) => {
   button.addEventListener('click', handleButton);
 });
@@ -23,6 +25,24 @@ async function handleButton(event) {
   }, 50); 
 };
 
+async function search(){
+  const query = searchBar.value;
+  const result = await fetch(`../../php/SearchProduct.php?query=${query}`);
+
+  const table = document.querySelector(".product-grid");
+  table.innerHTML = "";
+  const productTemplate = document.querySelector('#productTemplate');
+
+  result.forEach(product => {
+    const clone = productTemplate.content.cloneNode(true);
+    clone.innerHTML.replace("{{ id }}", product.id);
+    clone.innerHTML.replaceAll("{{ title }}", product.title);
+    clone.innerHTML.replace("{{ image }}", product.image);
+
+    table.appendChild(clone);
+  });
+}
+
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('modal')) {
     modal.style.opacity = 0;
@@ -41,7 +61,6 @@ modal.querySelector('.close').addEventListener('click', () => {
 
 
 // Ajout des produits dans le panier
-
 let cart = getCartFromCookie() || [];
 
 document.querySelectorAll('.add-to-cart-button').forEach(button => {

@@ -61,7 +61,9 @@
           {% include 'element.html.twig' with {'title': element.meridian_name, 'description': element.meridian_description} %}
         {% endfor %}
       </div>
-
+      <template id="elementTemplate">
+        {% include 'element.html.twig' with {'title': 'title', 'description': 'description'} %}
+      </template>
     </main>
 
     <div class="bg">
