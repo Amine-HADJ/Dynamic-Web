@@ -69,15 +69,15 @@ async function dp_data() {
   console.log(display_type.value);
   console.log(caracteristique_filter.value);
   console.log(type_filter.value);
-  let result = await fetch(`../../php/Filter.php?caracteristique=${caracteristique_filter.value}&type=${type_filter.value}`);
+  let result = await fetch(`../../php/Filter.php?caracteristique=${caracteristique_filter.value}&type=${type_filter.value}`).then(data => data.json());
   const template = document.querySelector("#elementTemplate");
   const table = document.querySelector(".table");
   table.innerHTML = "";
 
   result.forEach(async (item) => {
     const item_template = template.content.cloneNode(true);
-    const element = clone.firstElementChild;
-    element.innerHTML.replace(/template_title/g, item.nom_mer);
+    const element = item_template.firstElementChild;
+    element.onclick = (event) => fetchPatho(event, item.nom_mer);
     if (display_type.value == "meridian") {
       let title = item_template.querySelector("h1");
       title.innerHTML = item.nom_mer;
