@@ -18,7 +18,7 @@
     <script src="../public/js/search.js" defer></script>
 </head>
 <body>
-    {% include 'navbar.html.twig' %}
+    {% include 'navbar.html.twig' with { 'loggedin': loggedin } %}
 
     <main>
 

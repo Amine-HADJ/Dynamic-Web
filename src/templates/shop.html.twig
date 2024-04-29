@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    {% include 'navbar.html.twig' %}
+    {% include 'navbar.html.twig' with { 'loggedin': loggedin } %}
  
     <main>
         <div class = "searchbar">

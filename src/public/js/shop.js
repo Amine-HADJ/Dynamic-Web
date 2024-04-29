@@ -9,7 +9,7 @@ productButtons.forEach((button) => {
 async function handleButton(event) {
   const element = event.target.parentElement;
   const productId = element.dataset.id;
-  let result = await fetch(`../../Database/FetchProduct.php?query=${productId}`)
+  let result = await fetch(`../../php/FetchProduct.php?query=${productId}`)
       .then(data => data.json());
   result = result[0];
   

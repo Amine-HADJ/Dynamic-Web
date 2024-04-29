@@ -1,34 +1,41 @@
-    <nav>
-          <a href="/" class="logo-wrapper">
-              <img src="../public/assets/icon.png" alt="">
-              <div class="title-wrapper">
-                  <h1 class="accent">zen</h1>
-                  <h1>masters</h1>
-              </div>
-          </a>
-
-          <div class="links-wrapper">
-              <a href="/shop.php" class="nav-link">magasin</a>
-              <a href="/cart.php" class="nav-link">panier</a>
-              <a href="/login.php" class="nav-link">connexion | inscription</a>    
+<nav>
+      <a href="/" class="logo-wrapper">
+          <img src="../public/assets/icon.png" alt="">
+          <div class="title-wrapper">
+              <h1 class="accent">zen</h1>
+              <h1>masters</h1>
           </div>
-          
-          <a href="#" id="openBtn">
-            <span class="burger-icon">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </a>
+      </a>
 
-      <div class="nav-bg"></div>
-    </nav>
+      <div class="links-wrapper">
+          <a href="/shop.php" class="nav-link">magasin</a>
+          {% if loggedin == true %}
+            <a href="/cart.php" class="nav-link">panier</a>
+            <a href="../php/LogoutUser.php" class="nav-link">deconnexion</a>
+          {% else %}
+            <a href="/login.php" class="nav-link">connexion | inscription</a>  
+          {% endif %}  
+      </div>
+      
+      <a href="#" id="openBtn">
+        <span class="burger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </a>
 
-    <div id="mySidenav" class="sidenav">
-        <a href="/shop.php" class="nav-link">magasin</a>
-        <a href="/cart.php" class="nav-link">panier</a>
-        <a href="/login.php" class="nav-link">connexion | inscription</a>    
-        <div class="padding"></div>
-    </div>
-    
-    <script src="../public/js/nav.js"></script>
+  <div class="nav-bg"></div>
+</nav>
+
+<div id="mySidenav" class="sidenav">
+    <a href="/shop.php" class="nav-link">magasin</a>
+    {% if loggedin == true %}
+      <a href="/cart.php" class="nav-link">panier</a>
+    {% else %}
+      <a href="/login.php" class="nav-link">connexion | inscription</a>  
+    {% endif %}  
+    <div class="padding"></div>
+</div>
+
+<script src="../public/js/nav.js"></script>

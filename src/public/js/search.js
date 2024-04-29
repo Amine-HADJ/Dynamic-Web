@@ -30,7 +30,7 @@ async function fetchPatho(event, name){
         el.classList.remove("element-toggled");
     });
 
-    const result = await fetch(`../../Database/FetchPatho.php?query=${name}`)
+    const result = await fetch(`../../php/FetchPatho.php?query=${name}`)
         .then(data => data.json());
 
     const randomData = getRandomElements(result, 5);
@@ -47,7 +47,7 @@ async function fetchPatho(event, name){
 
 async function search(){
   const query = searchBar.value;
-  const result = await fetch(`../../Database/Search.php?query=${query}`);
+  const result = await fetch(`../../php/Search.php?query=${query}`);
 
   console.log(result);
 }
@@ -57,7 +57,7 @@ async function dp_data(){
     console.log(display_type.value);
     console.log(caracteristique_filter.value);
     console.log(type_filter.value);
-    //let result = await fetch(`../../Database/Filter.php?caracteristique=${caracteristique_filter.value}&type=${type_filter.value}`);            
+    //let result = await fetch(`../../php/Filter.php?caracteristique=${caracteristique_filter.value}&type=${type_filter.value}`);            
 }
 
 display_type.addEventListener("change", dp_data)

@@ -12,12 +12,10 @@
     <script src="../public/js/cart.js" defer></script>
 </head>
 <body>
-    {% include 'navbar.html.twig' %}
+    {% include 'navbar.html.twig' with { 'loggedin': loggedin } %}
  
     <main>
-       
-
-    <h1>Cart</h1>
+        <h1>Cart</h1>
 
         <ul id="cart-items">
             {% for product in elements %}
@@ -32,13 +30,7 @@
             {% endfor %}
         </ul>
 
-
         <button id="checkout-button">Commander</button>
     </main>
-
-
-
-    
-    
 </body>
 </html>
