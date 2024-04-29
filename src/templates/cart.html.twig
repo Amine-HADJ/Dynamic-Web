@@ -15,7 +15,8 @@
     {% include 'navbar.html.twig' with { 'loggedin': loggedin } %}
  
     <main>
-        <h1>Cart</h1>
+        <h2>Bonjour, {{ user }}</h2>
+        <h1>Panier</h1>
 
         <ul id="cart-items">
             {% for product in elements %}

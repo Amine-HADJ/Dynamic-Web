@@ -1,7 +1,6 @@
 <?php
     require_once './Database.php';
 
-    session_start();
     $db = new Database();
 
     if(isset($_POST['username']) && isset($_POST['password'])) {

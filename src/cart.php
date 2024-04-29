@@ -10,5 +10,5 @@
     $db = new Database();
     $data = $db->getCart();
 
-    echo $twig->render("cart.html.twig", ['elements' => $data, 'loggedin' => $loggedin]);
+    echo $twig->render("cart.html.twig", ['elements' => $data, 'user' => $user, 'loggedin' => $loggedin]);
 
