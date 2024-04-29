@@ -10,12 +10,7 @@
     $type = $_GET['type'];
     $type = $type == "tout" ? "" : $type;
 
-    $sql = "SELECT
-                    a.name,
-                    c.desc description_symptome,
-                    e.mer    meridien_patho,
-                    e.type    type_patho,
-                    e.desc    desc_patho,
+    $sql = "SELECT DISTINCT
                     f.nom    nom_mer,
                     f.element    element_mer
 
@@ -32,7 +27,7 @@
                                     INNER JOIN meridien f
                                         ON e.mer = f.code
                 WHERE 
-                    e.desc LIKE '%$type%$caracteristique%',
+                    e.desc LIKE '%$type%$caracteristique%'
             "; 
     $sth = $db->conn->prepare( $sql ); 
     $sth->execute();

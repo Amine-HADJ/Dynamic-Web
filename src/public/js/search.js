@@ -49,9 +49,20 @@ async function fetchPatho(event, name) {
 
 async function search() {
   const query = searchBar.value;
-  const result = await fetch(`../../php/Search.php?query=${query}`);
+  const result = await fetch(`../../php/Search.php?query=${query}`).then(data => data.json());
 
-  console.log(result);
+  const table = document.querySelector(".table");
+  table.innerHTML = "";
+  const elementTemplate = document.querySelector('#elementTemplate');
+
+  result.forEach(item => {
+    const clone = elementTemplate.content.cloneNode(true);
+    const element = clone.firstElementChild;
+    element.innerHTML = element.innerHTML.replace(/template_title/g, item.nom_mer);
+    element.innerHTML = element.innerHTML.replace(/template_description/g, item.description_symptome);
+    
+    table.appendChild(clone);
+  });
 }
 
 async function dp_data() {
@@ -81,3 +92,4 @@ display_type.addEventListener("change", dp_data);
 caracteristique_filter.addEventListener("change", dp_data);
 type_filter.addEventListener("change", dp_data);
 searchBar.addEventListener("change", search);
+

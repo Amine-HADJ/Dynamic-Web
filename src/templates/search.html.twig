@@ -25,44 +25,54 @@
       <div class="searchbar">
         <i id="close" class="fa-solid fa-search"></i>
         <input type="text" name="searchbar" id="searchbar" placeholder="Rechercher">
+
       </div>
+      
+      <div class="FiltersSidebar">
+        <div class="filter-container">
+          <label for="display">Afficher par:</label>
+          <select name="display" id="display">
+            <option value="meridian">Méridien</option>
+            <option value="symptome">Symptome</option>
+          </select>
+        </div>
 
-      <label for="display">Afficher par:</label>
-      <select name="display" id="display">
-        <option value="meridian">Méridien</option>
-        <option value="symptome">Symptome</option>
-      </select>
+        <div class="filter-container">
+          <label for="caracteristique">Caractéristique:</label>
+          <select name="caracteristique" id="caracteristique">
+            <option value="plein">Plein</option>
+            <option value="chaud">Chaud</option>
+            <option value="froid">Froid</option>
+            <option value="vide">Vide</option>
+            <option value="interne">Interne</option>
+            <option value="externe">Externe</option>
+            <option value="tout">Tout</option>
+          </select>
+        </div>
 
-      <label for="caracteristique">Caractéristique:</label>
-      <select name="caracteristique" id="caracteristique">
-        <option value="plein">Plein</option>
-        <option value="chaud">Chaud</option>
-        <option value="froid">Froid</option>
-        <option value="vide">Vide</option>
-        <option value="interne">Interne</option>
-        <option value="externe">Externe</option>
-        <option value="tout">Tout</option>
-      </select>
-
-      <label for="type">Type:</label>
-      <select name="type" id="type">
-        <option value="meridien">Méridien</option>
-        <option value="luo">Luo</option>
-        <option value="zang">Zang</option>
-        <option value="jing_jin">Jing Jin</option>
-        <option value="fu">Fu</option>
-        <option value="pathologie">Pathologie</option>
-        <option value="symptome">Symptome</option>
-        <option value="tout">Tout</option>
-      </select>
-
+        <div class="filter-container">
+          <label for="type">Type:</label>
+          <select name="type" id="type">
+            <option value="meridien">Méridien</option>
+            <option value="luo">Luo</option>
+            <option value="zang">Zang</option>
+            <option value="jing_jin">Jing Jin</option>
+            <option value="fu">Fu</option>
+            <option value="pathologie">Pathologie</option>
+            <option value="symptome">Symptome</option>
+            <option value="tout">Tout</option>
+          </select>
+        </div>
+      </div>
+      
       <div class="table">
         {% for element in elements %}
           {% include 'element.html.twig' with {'title': element.meridian_name, 'description': element.meridian_description} %}
         {% endfor %}
       </div>
+
       <template id="elementTemplate">
-        {% include 'element.html.twig' with {'title': 'title', 'description': 'description'} %}
+        {% include 'element.html.twig' with {'title': 'element_title', 'description': 'element_description'} %}
       </template>
     </main>
 

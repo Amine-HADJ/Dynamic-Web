@@ -27,7 +27,7 @@ async function handleButton(event) {
 
 async function search(){
   const query = searchBar.value;
-  const result = await fetch(`../../php/SearchProduct.php?query=${query}`);
+  const result = await fetch(`../../php/SearchProduct.php?query=${query}`).then(data => data.json());
 
   const table = document.querySelector(".product-grid");
   table.innerHTML = "";
@@ -35,10 +35,11 @@ async function search(){
 
   result.forEach(product => {
     const clone = productTemplate.content.cloneNode(true);
-    clone.innerHTML.replace("{{ id }}", product.id);
-    clone.innerHTML.replaceAll("{{ title }}", product.title);
-    clone.innerHTML.replace("{{ image }}", product.image);
-
+    const element = clone.firstElementChild;
+    element.innerHTML = element.innerHTML.replace(/template_id/g, product.id);
+    element.innerHTML = element.innerHTML.replace(/template_title/g, product.title);
+    element.innerHTML = element.innerHTML.replace(/template_image/g, product.image);
+    
     table.appendChild(clone);
   });
 }
@@ -89,3 +90,4 @@ function setCartCookie(cart) {
     document.cookie = 'cart=' + cookieValue + ';expires=' + expires.toUTCString() + ';path=/';
 }
 
+searchBar.addEventListener("change", search);
