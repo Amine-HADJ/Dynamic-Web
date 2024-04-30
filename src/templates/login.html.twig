@@ -14,8 +14,8 @@
     <script src="../public/js/login.js" defer></script>
 </head>
 
-<body>
-    {% include 'navbar.html.twig' %}
+<body>  
+    {% include 'navbar.html.twig' with { 'loggedin': loggedin } %}
 
     <main>
         <div class="container">
@@ -30,7 +30,7 @@
                     <form action="../Database/LoginUser.php" method="post">
                         <div class="textbox">
                             <i id="close" class="fa-solid fa-user"></i>
-                            <input type="text" id="username" name="username" placeholder="Nom d'utilisateur/email"><br>
+                            <input type="text" id="username" name="username" placeholder="Nom d'utilisateur/email" autocomplete="off"><br>
                         </div>
             
                         <div class="textbox">
@@ -54,12 +54,12 @@
                     <form action="../Database/RegisterUser.php" method="post">
                         <div class="textbox">
                             <i id="close" class="fa-solid fa-user"></i>
-                            <input type="text" id="new_username" name="new_username" placeholder="Nom d'utilisateur"><br>
+                            <input type="text" id="new_username" name="new_username" placeholder="Nom d'utilisateur" autocomplete="off"><br>
                         </div>
             
                         <div class="textbox">
                             <i id="close" class="fa-solid fa-envelope"></i>
-                            <input type="email" id="email" name="email" placeholder="Adresse email">
+                            <input type="email" id="email" name="email" placeholder="Adresse email" autocomplete="off">
                         </div>
             
                         <div class="textbox">
@@ -82,11 +82,12 @@
     </main>
 
     <div class="bg">
-        <img src="../public/assets/masks/mask1.png" alt="">
-        <img src="../public/assets/masks/mask2.png" alt="">
-        <img src="../public/assets/masks/mask3.png" alt="">
-        <img src="../public/assets/masks/mask4.png" alt="">
-        <img src="../public/assets/masks/mask5.png" alt="">
+        <img src="public/assets/masks/mask1.png" alt="Branche de d'arbre avec fleurs blanches 1">
+        <img src="public/assets/masks/mask2.png" alt="Branche de d'arbre avec fleurs blanches 2">
+        <img src="public/assets/masks/mask3.png" alt="Branche de d'arbre avec fleurs blanches 3">
+        <img src="public/assets/masks/mask4.png" alt="Branche de d'arbre avec fleurs blanches 4">
+        <img src="public/assets/masks/mask5.png" alt="Branche de d'arbre avec fleurs blanches 5">
     </div>
+    
 </body>
 </html>

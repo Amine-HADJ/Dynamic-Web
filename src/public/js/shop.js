@@ -2,6 +2,8 @@ const productButtons = document.querySelectorAll('.cta-button');
 const modal = document.querySelector('#modal');
 const transi = document.querySelector('.fade-in');
 
+const searchBar = document.querySelector('#searchbar');
+
 productButtons.forEach((button) => {
   button.addEventListener('click', handleButton);
 });
@@ -9,7 +11,7 @@ productButtons.forEach((button) => {
 async function handleButton(event) {
   const element = event.target.parentElement;
   const productId = element.dataset.id;
-  let result = await fetch(`../../Database/FetchProduct.php?query=${productId}`)
+  let result = await fetch(`../../php/FetchProduct.php?query=${productId}`)
       .then(data => data.json());
   result = result[0];
   
@@ -22,6 +24,25 @@ async function handleButton(event) {
     modal.style.opacity = 1;
   }, 50); 
 };
+
+async function search(){
+  const query = searchBar.value;
+  const result = await fetch(`../../php/SearchProduct.php?query=${query}`).then(data => data.json());
+
+  const table = document.querySelector(".product-grid");
+  table.innerHTML = "";
+  const productTemplate = document.querySelector('#productTemplate');
+
+  result.forEach(product => {
+    const clone = productTemplate.content.cloneNode(true);
+    const element = clone.firstElementChild;
+    element.innerHTML = element.innerHTML.replace(/template_id/g, product.id);
+    element.innerHTML = element.innerHTML.replace(/template_title/g, product.title);
+    element.innerHTML = element.innerHTML.replace(/template_image/g, product.image);
+    
+    table.appendChild(clone);
+  });
+}
 
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('modal')) {
@@ -41,7 +62,6 @@ modal.querySelector('.close').addEventListener('click', () => {
 
 
 // Ajout des produits dans le panier
-
 let cart = getCartFromCookie() || [];
 
 document.querySelectorAll('.add-to-cart-button').forEach(button => {
@@ -70,3 +90,4 @@ function setCartCookie(cart) {
     document.cookie = 'cart=' + cookieValue + ';expires=' + expires.toUTCString() + ';path=/';
 }
 
+searchBar.addEventListener("change", search);

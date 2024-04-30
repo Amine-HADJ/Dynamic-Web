@@ -1,12 +1,13 @@
 <?php
     // index.php
     require_once './vendor/autoload.php';
-    require_once './Database/Database.php';
-
+    require_once './php/Database.php';
+    require "./php/CheckSession.php";
+    
     $loader = new \Twig\Loader\FilesystemLoader('./templates');
     $twig = new \Twig\Environment($loader);
 
     $db = new Database();
     $data = $db->getData();
 
-    echo $twig->render("search.html.twig", ['elements' => $data]);
+    echo $twig->render("search.html.twig", ['elements' => $data, 'loggedin' => $loggedin]);

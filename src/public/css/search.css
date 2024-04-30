@@ -157,3 +157,53 @@ main {
     font-size: 1.3em;
     color: var(--darkgrey);
 }
+
+.FiltersSidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 75%;
+  max-width: 90vw;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  z-index: 3;
+  font-size: 1em;
+}
+
+select {
+  background: rgba(255, 255, 255, 0.305);
+  backdrop-filter: blur(10px);
+  border: none;
+  outline: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.068);
+  border-radius: 5px;
+  font-size: 1em;
+  padding: .4em .2em .4em .2em;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+
+  .FiltersSidebar {
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+  }
+  
+}

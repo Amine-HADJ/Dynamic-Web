@@ -68,7 +68,7 @@ main {
 }
 
 .product-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .product-item img {
@@ -80,7 +80,7 @@ main {
 .product-item h3 {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: .5em;
+  margin: .5em;
 }
 
 .product-item .cta-button {
@@ -92,10 +92,16 @@ main {
   padding: 10px 20px;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  margin-bottom: .5em;
 }
 
 .product-item .cta-button:hover {
   background-color: #0056b3;
+  cursor: pointer;
+}
+
+.product-item .add-to-cart-button:hover {
+  cursor: pointer;
 }
 
 .modal {
@@ -111,7 +117,6 @@ main {
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
 }
-
 
 .modal-content {
   background-color: #fefefe;

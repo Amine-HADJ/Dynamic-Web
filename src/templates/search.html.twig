@@ -18,58 +18,71 @@
     <script src="../public/js/search.js" defer></script>
 </head>
 <body>
-    {% include 'navbar.html.twig' %}
+    {% include 'navbar.html.twig' with { 'loggedin': loggedin } %}
 
     <main>
 
       <div class="searchbar">
         <i id="close" class="fa-solid fa-search"></i>
         <input type="text" name="searchbar" id="searchbar" placeholder="Rechercher">
+
       </div>
+      
+      <div class="FiltersSidebar">
+        <div class="filter-container">
+          <label for="display">Afficher par:</label>
+          <select name="display" id="display">
+            <option value="meridian">Méridien</option>
+            <option value="symptome">Symptome</option>
+          </select>
+        </div>
 
-      <label for="display">Afficher par:</label>
-      <select name="display" id="display">
-        <option value="meridian">Méridien</option>
-        <option value="symptome">Symptome</option>
-      </select>
+        <div class="filter-container">
+          <label for="caracteristique">Caractéristique:</label>
+          <select name="caracteristique" id="caracteristique">
+            <option value="tout">Tout</option>
+            <option value="plein">Plein</option>
+            <option value="chaud">Chaud</option>
+            <option value="froid">Froid</option>
+            <option value="vide">Vide</option>
+            <option value="interne">Interne</option>
+            <option value="externe">Externe</option>
+          </select>
+        </div>
 
-      <label for="caracteristique">Caractéristique:</label>
-      <select name="caracteristique" id="caracteristique">
-        <option value="plein">Plein</option>
-        <option value="chaud">Chaud</option>
-        <option value="froid">Froid</option>
-        <option value="vide">Vide</option>
-        <option value="interne">Interne</option>
-        <option value="externe">Externe</option>
-        <option value="tout">Tout</option>
-      </select>
-
-      <label for="type">Type:</label>
-      <select name="type" id="type">
-        <option value="meridien">Méridien</option>
-        <option value="luo">Luo</option>
-        <option value="zang">Zang</option>
-        <option value="jing_jin">Jing Jin</option>
-        <option value="fu">Fu</option>
-        <option value="pathologie">Pathologie</option>
-        <option value="symptome">Symptome</option>
-        <option value="tout">Tout</option>
-      </select>
-
+        <div class="filter-container">
+          <label for="type">Type:</label>
+          <select name="type" id="type">
+            <option value="tout">Tout</option>
+            <option value="meridien">Méridien</option>
+            <option value="luo">Luo</option>
+            <option value="zang">Zang</option>
+            <option value="jing_jin">Jing Jin</option>
+            <option value="fu">Fu</option>
+            <option value="pathologie">Pathologie</option>
+            <option value="symptome">Symptome</option>
+          </select>
+        </div>
+      </div>
+      
       <div class="table">
         {% for element in elements %}
           {% include 'element.html.twig' with {'title': element.meridian_name, 'description': element.meridian_description} %}
         {% endfor %}
       </div>
 
+      <template id="elementTemplate">
+        {% include 'element.html.twig' with {'title': 'template_title', 'description': 'template_title'} %}
+      </template>
     </main>
 
     <div class="bg">
-      <img src="./public/assets/masks/mask1.png" alt="">
-      <img src="./public/assets/masks/mask2.png" alt="">
-      <img src="./public/assets/masks/mask3.png" alt="">
-      <img src="./public/assets/masks/mask4.png" alt="">
-      <img src="./public/assets/masks/mask5.png" alt="">
-  </div>
+      <img src="public/assets/masks/mask1.png" alt="Branche de d'arbre avec fleurs blanches 1">
+      <img src="public/assets/masks/mask2.png" alt="Branche de d'arbre avec fleurs blanches 2">
+      <img src="public/assets/masks/mask3.png" alt="Branche de d'arbre avec fleurs blanches 3">
+      <img src="public/assets/masks/mask4.png" alt="Branche de d'arbre avec fleurs blanches 4">
+      <img src="public/assets/masks/mask5.png" alt="Branche de d'arbre avec fleurs blanches 5">
+    </div>
+    
 </body>
 </html>
