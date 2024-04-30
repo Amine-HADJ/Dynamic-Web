@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link rel="icon" type="image/x-icon" href="../public/assets/icon.ico"/>
-    <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../public/css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/cart2.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika+Negative" />    
     <script src="../public/js/cart.js" defer></script>
@@ -24,7 +24,7 @@
                 <li>
                     <img src="{{ product.image }}" alt="{{ product.title }}">
                     <h3>{{ product.title }}</h3>
-                    <p>{{ product.price }}</p>
+                    <p>{{ product.price }} </p>
                     <a href="{{ product.link }}">View product</a>
                     <i id="delete-item" class="fa-solid fa-trash" data-id="{{ product.id }}"></i>
 

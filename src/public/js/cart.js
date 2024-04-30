@@ -13,6 +13,7 @@ document.querySelectorAll("#delete-item").forEach((button) => {
     cart.splice(cart.indexOf(productId), 1);
 
     document.cookie = `cart=${JSON.stringify(cart)}; path=/`;
-    location.reload();
+    location.reload(); 
   });
 });
+
