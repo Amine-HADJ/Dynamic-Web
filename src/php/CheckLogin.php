@@ -6,7 +6,7 @@
     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         $loggedin = false;
         $user = null;
-        header('Location: login.php');
+        header('Location: ../login.php');
         exit;
     }
     $user = $_SESSION['username'];

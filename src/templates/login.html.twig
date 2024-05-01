@@ -27,7 +27,7 @@
             <div class="container-right">
                 <div class="login">
                     <h1>Connexion</h1>
-                    <form action="../Database/LoginUser.php" method="post">
+                    <form action="../php/LoginUser.php" method="post">
                         <div class="textbox">
                             <i id="close" class="fa-solid fa-user"></i>
                             <input type="text" id="username" name="username" placeholder="Nom d'utilisateur/email" autocomplete="off"><br>
@@ -39,7 +39,7 @@
                         </div>
             
                         <div class="checkbox-wrapper">
-                            <input type="checkbox" name="remember" id="remember">
+                            <input type="checkbox" name="remember" id="remember" checked>
                             <label for="remember">Se souvenir de moi</label>
                         </div>
 
@@ -51,7 +51,7 @@
 
                 <div class="register">
                     <h1>Inscription</h1>
-                    <form action="../Database/RegisterUser.php" method="post">
+                    <form action="../php/RegisterUser.php" method="post">
                         <div class="textbox">
                             <i id="close" class="fa-solid fa-user"></i>
                             <input type="text" id="new_username" name="new_username" placeholder="Nom d'utilisateur" autocomplete="off"><br>

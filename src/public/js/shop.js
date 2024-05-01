@@ -35,7 +35,7 @@ async function search(){
 
   result.forEach(product => {
     const clone = productTemplate.content.cloneNode(true);
-    const element = clone.firstElementChild;
+    const element = clone.firstElementChild;   
     element.innerHTML = element.innerHTML.replace(/template_id/g, product.id);
     element.innerHTML = element.innerHTML.replace(/template_title/g, product.title);
     element.innerHTML = element.innerHTML.replace(/template_image/g, product.image);

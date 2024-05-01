@@ -18,8 +18,7 @@
         $result = $sth->fetchAll();
 
         if($result[0]['0']) {
-            echo "User already exists";
-            header('Location: login.php');
+            header('Location: ../login.php');
             exit();
         }
 
@@ -31,11 +30,10 @@
         $_SESSION['username'] = $query_user;
         setcookie("user", $query_user, time() + (86400 * 30));
 
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit();
     } else {
-        echo "Missing details";
-        header('Location: login.php');
+        header('Location: ../login.php');
         exit();
     }
 ?>

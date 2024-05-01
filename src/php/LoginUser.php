@@ -1,6 +1,7 @@
 <?php
     require_once './Database.php';
-
+    session_start();
+    
     $db = new Database();
 
     if(isset($_POST['username']) && isset($_POST['password'])) {
@@ -22,13 +23,13 @@
                 $_SESSION['username'] = $query_user;
                 setcookie("user", $query_user, time() + (86400 * 30));
     
-                echo 'ok';
+                header('Location: ../index.php');
                 exit();
             }
-            echo "pass error";
+            header('Location: ../login.php');
             exit();
         } else {
-            echo 'error';
+            header('Location: ../login.php');
             exit();
         }
     }

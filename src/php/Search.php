@@ -28,6 +28,8 @@
                                 INNER JOIN meridien f
                                     ON e.mer = f.code
             WHERE a.name LIKE '%$query%'
+            OR c.desc LIKE '%$query%'
+            OR f.nom LIKE '%$query%'
         "; 
     $sth = $db->conn->prepare( $sql ); 
     $sth->execute();

@@ -10,9 +10,14 @@
     $type = $_GET['type'];
     $type = $type == "tout" ? "" : $type;
 
-    $sql = "SELECT DISTINCT
-                    f.nom    nom_mer,
-                    f.element    element_mer
+    $sql = "SELECT                 
+                a.name,
+                c.desc description_symptome,
+                e.mer    meridien_patho,
+                e.type    type_patho,
+                e.desc    desc_patho,
+                f.nom    nom_mer,
+                f.element    element_mer
 
                 FROM
                     keywords a
