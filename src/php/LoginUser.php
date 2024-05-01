@@ -10,10 +10,13 @@
 
         $check_query = "SELECT *
             FROM users
-            WHERE username = '$query_user' OR email = '$query_user'";
+            WHERE username = :query_user OR email = :query_email";
 
-        $sth = $db->conn->prepare( $check_query ); 
+        $sth = $db->conn->prepare($check_query);
+        $sth->bindValue(':query_user', $query_user, PDO::PARAM_STR);
+        $sth->bindValue(':query_email', $query_email, PDO::PARAM_STR);
         $sth->execute();
+
         $result = $sth->fetchAll();
         
         if($result){

@@ -7,10 +7,11 @@
     $query = $_GET['query'];
 
     $sql = "SELECT *
-            FROM products
-            WHERE title LIKE '%$query%'
-        "; 
-    $sth = $db->conn->prepare( $sql ); 
+        FROM products
+        WHERE title LIKE :query";
+
+    $sth = $db->conn->prepare($sql);
+    $sth->bindValue(':query', '%' . $query . '%', PDO::PARAM_STR);
     $sth->execute();
     $elements = $sth->fetchAll();
 
