@@ -9,6 +9,11 @@
         $query_pass = $_POST['new_password'];
         $query_email = $_POST['email'];
 
+        if($query_email == "" || $query_pass == "" || $query_user == ""){
+            header('Location: ../login.php');
+            exit();
+        }
+
         $check_query = "SELECT COUNT(1) > 0
             FROM users
             WHERE username = :username OR email = :email";

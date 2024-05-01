@@ -14,7 +14,7 @@
 
         $sth = $db->conn->prepare($check_query);
         $sth->bindValue(':query_user', $query_user, PDO::PARAM_STR);
-        $sth->bindValue(':query_email', $query_email, PDO::PARAM_STR);
+        $sth->bindValue(':query_email', $query_user, PDO::PARAM_STR);
         $sth->execute();
 
         $result = $sth->fetchAll();
@@ -28,9 +28,10 @@
     
                 header('Location: ../index.php');
                 exit();
+            } else {
+                header('Location: ../login.php');
+                exit();
             }
-            header('Location: ../login.php');
-            exit();
         } else {
             header('Location: ../login.php');
             exit();

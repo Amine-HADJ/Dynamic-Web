@@ -16,20 +16,31 @@
  
     <main>
         <h2>Bonjour, {{ user }}</h2>
-        <h1>Panier</h1>
+        <h1>Votre panier :</h1>
 
-        <ul id="cart-items">
+        {% set cartItems = {} %}
             {% for product in elements %}
-                <li>
-                    <img src="{{ product.image }}" alt="{{ product.title }}">
-                    <h3>{{ product.title }}</h3>
-                    <p>{{ product.price }} </p>
-                    <a href="{{ product.link }}">View product</a>
-                    <i id="delete-item" class="fa-solid fa-trash" data-id="{{ product.id }}"></i>
-
-                </li>
+                {% if not cartItems[product.title] is defined %}
+                    {% set cartItems = cartItems|merge({(product.title): {'product': product, 'quantity': 1}}) %}
+                {% else %}
+                    {% set cartItems = cartItems|merge({(product.title): {'product': cartItems[product.title].product, 'quantity': cartItems[product.title].quantity + 1}}) %}
+                {% endif %}
             {% endfor %}
-        </ul>
+
+            <ul id="cart-items">
+                {% for item in cartItems %}
+                    <li>
+                        <img src="{{ item.product.image }}" alt="{{ item.product.title }}">
+                        <h3>{{ item.product.title }}</h3>
+                        <p>{{ item.product.price }} </p>
+                        <p>Quantity: {{ item.quantity }}</p>
+                        <a href="{{ item.product.link }}">View product</a>
+                        <i id="delete-item" class="fa-solid fa-trash" data-id="{{ item.product.id }}"></i>
+                    </li>
+                {% endfor %}
+            </ul>
+
+        <h2>Total: <span id="total">{{ '$' ~ total }}</span></h2>
 
         <button id="checkout-button">Commander</button>
     </main>

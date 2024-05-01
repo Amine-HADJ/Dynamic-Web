@@ -10,5 +10,10 @@
     $db = new Database();
     $data = $db->getCart();
 
-    echo $twig->render("cart.html.twig", ['elements' => $data, 'user' => $user, 'loggedin' => $loggedin]);
+    // On récupère le prix de chaque élement du panier pour calculer le total ($data[i]['price'] est de la forme $00.00 )
+    $total = 0; 
+    foreach ($data as $element) {
+        $total += floatval(substr($element['price'], 1));
+    }
+    echo $twig->render("cart.html.twig", ['elements' => $data, 'user' => $user, 'loggedin' => $loggedin, 'total' => $total]);
 
