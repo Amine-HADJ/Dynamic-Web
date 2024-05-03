@@ -22,10 +22,10 @@
             INNER JOIN symptPatho d ON c.idS = d.idS
             INNER JOIN patho e ON d.idP = e.idP
             INNER JOIN meridien f ON e.mer = f.code
-        WHERE f.nom LIKE :query";
+        WHERE f.nom LIKE :query OR e.desc LIKE :query";
 
     $sth = $db->conn->prepare($sql);
-    $sth->bindValue(':query', '%' . $query . '%', PDO::PARAM_STR);
+    $sth->bindValue(':query', '%' . $query . '%', PDO::PARAM_STR); 
     $sth->execute();
     $elements = $sth->fetchAll();
 

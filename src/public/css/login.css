@@ -5,7 +5,9 @@
   gap: 1em;
   width: 100%;
   height: 100%;
+  margin-top: -50px; 
 }
+
 
 .container-left{
   display: flex;

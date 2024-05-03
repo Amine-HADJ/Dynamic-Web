@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="icon" type="image/x-icon" href="../public/assets/icon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../public/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/profile.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika+Negative" />
+
+    <script src="../public/js/profile2.js" defer></script>
+
+</head>
+<body>
+    {% include 'navbar.html.twig' with { 'loggedin': loggedin } %}
+
+    <main>
+        <h2>Bonjour, {{ user }}</h2>
+        <p><strong>Email:</strong> {{ user_email }}</p>
+        <button id="edit-email-btn">Modifier l'email</button>
+        <p><strong>Mot de passe:</strong> ********</p>
+        <button id="edit-password-btn">Modifier le mot de passe</button>
+    </main>
+
+    <!-- Modal pour modifier l'email -->
+    <div id="edit-email-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p><strong>Modifier l'email:</strong></p>
+            <form id="edit-email-form">
+                <label for="new-email">Nouvel email:</label>
+                <input type="email" id="new-email" name="new-email" required>
+                <label for="confirm-new-email">Confirmer le nouvel email:</label>
+                <input type="email" id="confirm-new-email" name="confirm-new-email" required>
+                <button id = "submit-email" type="submit">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour modifier le mot de passe -->
+    <div id="edit-password-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p><strong>Modifier le mot de passe:</strong></p>
+            <form id="edit-password-form">
+                <label for="new-password">Nouveau mot de passe:</label>
+                <input type="password" id="new-password" name="new-password" required>
+                <label for="confirm-new-password">Confirmer le nouveau mot de passe:</label>
+                <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+                <button id = "submit-password" type="submit">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="password-changed-modal" class="modal">
+        <div class="modal-content">
+            <p> </p>
+        </div>
+     </div>
+
+     <div id="email-changed-modal" class="modal">
+        <div class="modal-content">
+            <p> </p>
+        </div>
+     </div>
+
+    
+</body>
+</html>

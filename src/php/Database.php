@@ -51,6 +51,8 @@ class Database {
         
         return $products;
     }
+
+    
     
 
 }

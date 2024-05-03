@@ -1,0 +1,139 @@
+body {
+    font-family: 'Signika Negative', sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  main {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  main h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  main p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  main button {
+    background-color: #9a9f9a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  main button:hover {
+    background-color: #9a9f9a;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  .modal-content p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content form label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+  }
+  
+  .modal-content form input[type="email"],
+  .modal-content form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content form button {
+    background-color: #9a9f9a;;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+  
+  .modal-content form button:hover {
+    opacity: 1;
+  }
+  
+  .modal-content form input[type="email"],
+  .modal-content form input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .modal-content form input[type="submit"] {
+    background-color: #9a9f9a;;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+  
+  .modal-content form input[type="submit"]:hover {
+    opacity: 1;
+  }
+  
+  .close {
+    position: absolute;
+    top: 130px;
+    right: 170px;
+    color: #b50d0d;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  
